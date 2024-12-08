@@ -10,6 +10,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 // Connect to MongoDB
 mongoose
@@ -21,7 +22,6 @@ mongoose
   .catch((err) => console.error(err));
 
 // Routes
-app.use(cors());
 app.use("/api/admin", adminRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/team", teamRoutes);
