@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
 const adminRoutes = require("./routes/adminRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 const teamRoutes = require("./routes/teamRoutes");
@@ -20,6 +21,7 @@ mongoose
   .catch((err) => console.error(err));
 
 // Routes
+app.use(cors());
 app.use("/api/admin", adminRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/team", teamRoutes);
